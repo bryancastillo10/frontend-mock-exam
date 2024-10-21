@@ -6,9 +6,11 @@ import {
   AppMainSection,
   Drawer,
 } from "./components/main";
+import useGetBanner from "./api/useGetBanner";
 
 const App = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const { loading, banners } = useGetBanner();
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -23,7 +25,12 @@ const App = () => {
       <Navbar toggleDrawer={toggleDrawer} />
       <Hero />
       <AppMainSection />
-      <Drawer isOpen={openDrawer} onCloseDrawer={onCloseDrawer} />
+      <Drawer
+        banners={banners}
+        loading={loading}
+        isOpen={openDrawer}
+        onCloseDrawer={onCloseDrawer}
+      />
     </Container>
   );
 };

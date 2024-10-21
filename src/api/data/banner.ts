@@ -22,13 +22,13 @@ const bannerData = [
     id: 2,
     name: "Every Matrix",
     img: EM,
-    quantity: 85,
+    quantity: 30,
   },
   {
     id: 3,
     name: "Evolution",
     img: EVO,
-    quantity: 134,
+    quantity: 124,
   },
   {
     id: 4,
@@ -52,13 +52,13 @@ const bannerData = [
     id: 7,
     name: "Hacksaw Gaming",
     img: Hacksaw,
-    quantity: 143,
+    quantity: 140,
   },
   {
     id: 8,
     name: "Inbet Games",
     img: InBet,
-    quantity: 99,
+    quantity: 34,
   },
   {
     id: 9,
@@ -70,19 +70,19 @@ const bannerData = [
     id: 10,
     name: "Net Ent",
     img: NetEnt,
-    quantity: 123,
+    quantity: 44,
   },
   {
     id: 11,
     name: "PG Soft",
     img: PGSoft,
-    quantity: 88,
+    quantity: 38,
   },
   {
     id: 12,
     name: "Xpans Studios",
     img: Xpans,
-    quantity: 97,
+    quantity: 47,
   },
 ];
 
