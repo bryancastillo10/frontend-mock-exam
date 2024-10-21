@@ -1,5 +1,6 @@
 import { BiMenuAltLeft } from "react-icons/bi";
 import { IoWallet } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
 import NavLogo from "../../assets/F1M5_Logo.png";
 
 const Navbar = () => {
@@ -12,6 +13,8 @@ const Navbar = () => {
       <div className="flex gap-2 items-center">
         <IoWallet size="24" className="text-secondary" />
         <h1 className="font-semibold text-primary">$ 1990.6</h1>
+        <hr className="h-full border border-primary" />
+        <FaUser size="24" className="text-primary" />
       </div>
     </nav>
   );
