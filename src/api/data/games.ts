@@ -40,7 +40,7 @@ const gameData = [
     name: "Book of Egypt",
     img: bookEgypt,
     hasFavorited: false,
-    category: ["live", "table"],
+    category: ["live", "table games", "bingo"],
     gameProvider: ["XPans"],
   },
   {
@@ -72,7 +72,7 @@ const gameData = [
     name: "Maya Jackpot",
     img: mayaJackpot,
     hasFavorited: false,
-    category: ["live", "jackpot"],
+    category: ["slots", "jackpot"],
     gameProvider: ["SkyWind"],
   },
   {
@@ -80,7 +80,7 @@ const gameData = [
     name: "Beach Life",
     img: beachLife,
     hasFavorited: false,
-    category: ["others", "table"],
+    category: ["others", "table games", "bingo"],
     gameProvider: ["PlayTech"],
   },
   {
@@ -88,7 +88,7 @@ const gameData = [
     name: "Inca Jackpot",
     img: incaJackpot,
     hasFavorited: false,
-    category: ["live", "jackpot"],
+    category: ["slots", "jackpot"],
     gameProvider: ["SkyWind"],
   },
   {
@@ -96,7 +96,7 @@ const gameData = [
     name: "Pride of Persia Empire Treasures",
     img: pridePersia,
     hasFavorited: false,
-    category: ["new", "table"],
+    category: ["new", "table games"],
     gameProvider: ["PlayTech"],
   },
   {

@@ -8,7 +8,7 @@ import GameIcon from "../assets/icons/playingCardIcon.svg";
 import BingoIcon from "../assets/icons/bingoIcon.svg";
 import OthersIcon from "../assets/icons/othersIcon.svg";
 
-interface UpperNavItemsProps {
+export interface UpperNavItemsProps {
   id: number;
   name: string;
   icon: React.ElementType;

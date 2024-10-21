@@ -1,7 +1,7 @@
 import gameData from "./data/games";
 import { useState, useEffect } from "react";
 
-interface gameProps {
+export interface gameDataProps {
   id: number;
   name: string;
   img: string;
@@ -11,7 +11,7 @@ interface gameProps {
 }
 
 const useGetGames = () => {
-  const [games, setGames] = useState<gameProps[]>([]);
+  const [games, setGames] = useState<gameDataProps[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {

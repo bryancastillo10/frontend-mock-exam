@@ -1,10 +1,14 @@
-import useGetGames from "../../api/useGetGames";
+import { gameDataProps } from "../../api/useGetGames";
 import BigSpinner from "../reusables/BigSpinner";
 import Cards from "../reusables/Cards";
 
-const GameGallery = () => {
-  const { games, loading, toggleFavorite } = useGetGames();
+interface GameGalleryProps {
+  loading: boolean;
+  games: gameDataProps[];
+  toggleFavorite: (id: number) => void;
+}
 
+const GameGallery = ({ loading, games, toggleFavorite }: GameGalleryProps) => {
   if (loading) {
     return (
       <div className="flex justify-center">
