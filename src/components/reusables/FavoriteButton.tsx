@@ -16,7 +16,10 @@ const FavoriteButton = ({
       onClick={() => toggleFavorite(gameId!)}
       className="relative cursor-pointer"
     >
-      <FaRegStar className="absolute -top-[2px] -right-[2px]" size="20" />
+      <FaRegStar
+        className="absolute -top-[2px] -right-[2px] fill-white"
+        size="20"
+      />
       <FaStar
         size="16"
         className={hasFavorited ? "fill-accent" : "fill-transparent"}

@@ -2,7 +2,7 @@ interface TabItemProps {
   activeTab?: string;
   label: string;
   icon: React.ElementType;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const TabItem = ({ label, icon: Icon, onClick, activeTab }: TabItemProps) => {

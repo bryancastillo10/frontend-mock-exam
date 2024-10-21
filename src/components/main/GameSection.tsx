@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import LowerNavigation from "./LowerNavigation";
 import UpperNavigation from "./UpperNavigation";
+import SearchInput from "../reusables/SearchInput";
 import GameGallery from "./GameGallery";
 
 import useGetGames from "../../api/useGetGames";
@@ -8,16 +9,43 @@ import upperNavTabItems from "../../constants/uppernav";
 
 const GameSection = () => {
   const { loading, games, toggleFavorite } = useGetGames();
+  const [search, setSearch] = useState("");
   const [activeTab, setActiveTab] = useState<string>("Start");
+  const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [filteredGames, setFilteredGames] = useState(games);
 
-  const filteredGames =
-    activeTab === "Start"
-      ? games
-      : games.filter((game) =>
-          game.category.some((cat) => cat === activeTab.toLowerCase())
-        );
+  // Toggle Search UI
+  const toggleShowSearch = () => {
+    setShowSearch(!showSearch);
+    setSearch("");
+  };
 
-  console.log(activeTab);
+  // Handle Search Input
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
+  useEffect(() => {
+    let filtered = games;
+
+    // Filter by Search
+    if (search) {
+      filtered = filtered.filter((game) =>
+        game.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    // Filter by Tab
+    if (activeTab !== "Start") {
+      filtered = filtered.filter((game) =>
+        game.category.some(
+          (cat) => cat.toLowerCase() === activeTab.toLowerCase()
+        )
+      );
+    }
+
+    setFilteredGames(filtered);
+  }, [search, activeTab, games]);
 
   return (
     <main>
@@ -25,7 +53,12 @@ const GameSection = () => {
         activeTab={activeTab}
         tabItems={upperNavTabItems}
         setActiveTab={setActiveTab}
+        showSearch={showSearch}
+        toggleSearch={toggleShowSearch}
       />
+      {showSearch && (
+        <SearchInput search={search} handleSearch={handleSearch} />
+      )}
       <GameGallery
         loading={loading}
         games={filteredGames}

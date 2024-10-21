@@ -20,7 +20,7 @@ const useGetGames = () => {
       await new Promise((resolve) => {
         setTimeout(() => {
           resolve(gameData);
-        }, 2000);
+        }, 1000);
       });
 
       setGames(gameData);
