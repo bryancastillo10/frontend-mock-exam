@@ -1,9 +1,9 @@
-import { ReactComponent as SearchIcon } from "../../assets/icons/searchIcon.svg";
+import SearchIcon from "../../assets/icons/searchIcon.svg";
 
 const TabItem = () => {
   return (
     <div>
-      <SearchIcon />
+      <SearchIcon className=" text-secondary hover:text-primary" />
       <p>Test</p>
     </div>
   );
