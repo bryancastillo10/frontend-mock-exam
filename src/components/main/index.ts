@@ -6,10 +6,12 @@ import GameGallery from "./GameGallery";
 import UpperNavigation from "./UpperNavigation";
 import LowerNavigation from "./LowerNavigation";
 import SearchResults from "./SearchResults";
+import Drawer from "./Drawer";
 
 export {
   Container,
   AppMainSection,
+  Drawer,
   Hero,
   Navbar,
   SearchResults,

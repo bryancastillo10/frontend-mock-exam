@@ -11,7 +11,7 @@ const TabContainer = ({ children, position = "top" }: TabContainerProps) => {
          overflow-y-clip bg-white xl:w-[388px] 
       ${
         position === "bottom"
-          ? "justify-center fixed bottom-0 z-50 border shadow-md border-t-secondary"
+          ? "justify-center fixed bottom-0 z-10 border shadow-md border-t-secondary"
           : "justify-start"
       }
     `}

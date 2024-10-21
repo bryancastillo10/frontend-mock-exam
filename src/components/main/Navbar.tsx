@@ -3,11 +3,19 @@ import { IoWallet } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import NavLogo from "../../assets/F1M5_Logo.png";
 
-const Navbar = () => {
+interface NavbarProps {
+  toggleDrawer: () => void;
+}
+
+const Navbar = ({ toggleDrawer }: NavbarProps) => {
   return (
     <nav className="px-3 py-4 border shadow-md flex justify-between">
       <div className="flex gap-3 items-center">
-        <BiMenuAltLeft size="24" className="text-primary" />
+        <BiMenuAltLeft
+          onClick={toggleDrawer}
+          size="24"
+          className="text-primary cursor-pointer hover:text-secondary"
+        />
         <img src={NavLogo} alt="fun88-logo" className="h-5 max-w-sm" />
       </div>
       <div className="flex gap-2 items-center">
