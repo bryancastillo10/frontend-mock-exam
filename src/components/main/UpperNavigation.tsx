@@ -19,10 +19,24 @@ const UpperNavigation = ({
   toggleSearch,
   showSearch,
 }: UpperNavigationProps) => {
+  const handleSearchClick = () => {
+    toggleSearch();
+    if (!showSearch) {
+      setActiveTab("");
+    }
+  };
+
+  const handleTabClick = (tabName: string) => {
+    setActiveTab(tabName);
+    if (showSearch) {
+      toggleSearch();
+    }
+  };
+
   return (
     <TabContainer>
       <button
-        onClick={toggleSearch}
+        onClick={handleSearchClick}
         className={`flex flex-col justify-center
        items-center hover:scale-110 duration-500 ease-out w-fit p-2
        ${showSearch ? "border-b-primary border-b-4" : null}
@@ -46,7 +60,7 @@ const UpperNavigation = ({
           activeTab={activeTab}
           label={nav.name}
           icon={nav.icon}
-          onClick={() => setActiveTab(nav.name)}
+          onClick={() => handleTabClick(nav.name)}
         />
       ))}
     </TabContainer>

@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import LowerNavigation from "./LowerNavigation";
 import UpperNavigation from "./UpperNavigation";
 import SearchInput from "../reusables/SearchInput";
@@ -9,10 +9,11 @@ import upperNavTabItems from "../../constants/uppernav";
 
 const GameSection = () => {
   const { loading, games, toggleFavorite } = useGetGames();
+  const [filteredGames, setFilteredGames] = useState(games);
+
   const [search, setSearch] = useState("");
   const [activeTab, setActiveTab] = useState<string>("Start");
   const [showSearch, setShowSearch] = useState<boolean>(false);
-  const [filteredGames, setFilteredGames] = useState(games);
 
   // Toggle Search UI
   const toggleShowSearch = () => {
@@ -23,6 +24,10 @@ const GameSection = () => {
   // Handle Search Input
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+  };
+
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   useEffect(() => {
@@ -48,7 +53,7 @@ const GameSection = () => {
   }, [search, activeTab, games]);
 
   return (
-    <main>
+    <main className="h-screen">
       <UpperNavigation
         activeTab={activeTab}
         tabItems={upperNavTabItems}
@@ -57,7 +62,11 @@ const GameSection = () => {
         toggleSearch={toggleShowSearch}
       />
       {showSearch && (
-        <SearchInput search={search} handleSearch={handleSearch} />
+        <SearchInput
+          search={search}
+          handleSearch={handleSearch}
+          handleSearchSubmit={handleSearchSubmit}
+        />
       )}
       <GameGallery
         loading={loading}
