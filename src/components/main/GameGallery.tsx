@@ -18,7 +18,7 @@ const GameGallery = ({ loading, games, toggleFavorite }: GameGalleryProps) => {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-y-3 px-8 justify-center">
+    <div className="grid grid-cols-3 gap-y-3 px-8 xl:px-2 justify-center">
       {games.map((game) => (
         <Cards
           key={game.id}

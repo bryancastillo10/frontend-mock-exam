@@ -22,6 +22,7 @@ const GameSection = () => {
   return (
     <main>
       <UpperNavigation
+        activeTab={activeTab}
         tabItems={upperNavTabItems}
         setActiveTab={setActiveTab}
       />

@@ -5,11 +5,16 @@ import SearchIcon from "../../assets/icons/searchIcon.svg";
 import { UpperNavItemsProps } from "../../constants/uppernav";
 
 interface UpperNavigationProps {
+  activeTab: string;
   tabItems: UpperNavItemsProps[];
   setActiveTab: Dispatch<React.SetStateAction<string>>;
 }
 
-const UpperNavigation = ({ tabItems, setActiveTab }: UpperNavigationProps) => {
+const UpperNavigation = ({
+  activeTab,
+  tabItems,
+  setActiveTab,
+}: UpperNavigationProps) => {
   return (
     <TabContainer>
       <TabItem label="Search" icon={SearchIcon} />
@@ -17,6 +22,7 @@ const UpperNavigation = ({ tabItems, setActiveTab }: UpperNavigationProps) => {
       {tabItems.slice(1, tabItems.length).map((nav) => (
         <TabItem
           key={nav.id}
+          activeTab={activeTab}
           label={nav.name}
           icon={nav.icon}
           onClick={() => setActiveTab(nav.name)}
