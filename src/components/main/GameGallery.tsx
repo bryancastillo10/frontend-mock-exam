@@ -1,11 +1,16 @@
 import useGetGames from "../../api/useGetGames";
+import BigSpinner from "../reusables/BigSpinner";
 import Cards from "../reusables/Cards";
 
 const GameGallery = () => {
   const { games, loading, toggleFavorite } = useGetGames();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center">
+        <BigSpinner />
+      </div>
+    );
   }
 
   return (
