@@ -29,12 +29,10 @@ const useGetGames = () => {
     fetchGames();
   }, []);
 
-  const toggleFavorite = (gameId: number) => {
+  const toggleFavorite = (id: number) => {
     setGames((prevGames) =>
       prevGames.map((game) =>
-        game.id === gameId
-          ? { ...game, hasFavorited: !game.hasFavorited }
-          : game
+        game.id === id ? { ...game, hasFavorited: !game.hasFavorited } : game
       )
     );
   };

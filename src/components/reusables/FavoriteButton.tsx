@@ -1,8 +1,7 @@
-import { FaRegStar } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 interface FavoriteButtonProps {
-  gameId?: number;
+  gameId: number;
   toggleFavorite: (id: number) => void;
   hasFavorited: boolean;
 }
