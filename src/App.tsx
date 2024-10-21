@@ -2,8 +2,9 @@ import {
   Container,
   Navbar,
   Hero,
-  NavigationTabs,
+  UpperNavigation,
   GameSection,
+  LowerNavigation,
 } from "./components/main";
 
 const App = () => {
@@ -11,9 +12,9 @@ const App = () => {
     <Container>
       <Navbar />
       <Hero />
-      <NavigationTabs />
+      <UpperNavigation />
       <GameSection />
-      <NavigationTabs />
+      <LowerNavigation />
     </Container>
   );
 };
