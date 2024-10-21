@@ -1,64 +1,64 @@
-import searchIcon from "../assets/icons/searchIcon.svg";
-import fireIcon from "../assets/icons/fireIcon.svg";
-import slotIcon from "../assets/icons/slotIcon.svg";
-import newIcon from "../assets/icons/newIcon.svg";
-import liveIcon from "../assets/icons/liveIcon.svg";
-import jackpotIcon from "../assets/icons/jackpotIcon.svg";
-import gameIcon from "../assets/icons/playingCardIcon.svg";
-import bingoIcon from "../assets/icons/bingotIcon.svg";
-import othersIcon from "../assets/icons/othersIcon.svg";
+import SearchIcon from "../assets/icons/searchIcon.svg";
+import FireIcon from "../assets/icons/fireIcon.svg";
+import SlotIcon from "../assets/icons/slotIcon.svg";
+import NewIcon from "../assets/icons/newIcon.svg";
+import LiveIcon from "../assets/icons/liveIcon.svg";
+import JackpotIcon from "../assets/icons/jackpotIcon.svg";
+import GameIcon from "../assets/icons/playingCardIcon.svg";
+import BingoIcon from "../assets/icons/bingotIcon.svg";
+import OthersIcon from "../assets/icons/othersIcon.svg";
 
 interface UpperNavItemsProps {
   id: number;
   name: string;
-  icon: string;
+  icon: React.ElementType;
 }
 
 const upperNavTabItems: UpperNavItemsProps[] = [
   {
     id: 1,
     name: "Search",
-    icon: searchIcon,
+    icon: SearchIcon,
   },
   {
     id: 2,
     name: "Start",
-    icon: fireIcon,
+    icon: FireIcon,
   },
   {
     id: 3,
     name: "New",
-    icon: newIcon,
+    icon: NewIcon,
   },
   {
     id: 4,
     name: "Slots",
-    icon: slotIcon,
+    icon: SlotIcon,
   },
   {
     id: 5,
     name: "Live",
-    icon: liveIcon,
+    icon: LiveIcon,
   },
   {
     id: 6,
     name: "Jackpots",
-    icon: jackpotIcon,
+    icon: JackpotIcon,
   },
   {
     id: 7,
     name: "Table Games",
-    icon: gameIcon,
+    icon: GameIcon,
   },
   {
     id: 8,
     name: "Bingo",
-    icon: bingoIcon,
+    icon: BingoIcon,
   },
   {
     id: 9,
     name: "Others",
-    icon: othersIcon,
+    icon: OthersIcon,
   },
 ];
 

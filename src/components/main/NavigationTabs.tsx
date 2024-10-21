@@ -1,10 +1,11 @@
 import TabItem from "../reusables/TabItem";
+import SearchIcon from "../../assets/icons/searchIcon.svg";
+
 const NavigationTabs = () => {
   return (
-    <div>
-      Icons and Navigations
-      <TabItem />
-    </div>
+    <section>
+      <TabItem label="Search" icon={SearchIcon} />
+    </section>
   );
 };
 

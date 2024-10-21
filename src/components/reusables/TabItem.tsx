@@ -1,11 +1,14 @@
-import SearchIcon from "../../assets/icons/searchIcon.svg";
+interface TabItemProps {
+  label: string;
+  icon: React.ElementType;
+}
 
-const TabItem = () => {
+const TabItem = ({ label, icon: Icon }: TabItemProps) => {
   return (
-    <div>
-      <SearchIcon className=" text-secondary hover:text-primary" />
-      <p>Test</p>
-    </div>
+    <button className="flex flex-col justify-center items-center hover:scale-110 duration-500 ease-out w-fit p-2">
+      <Icon className=" text-secondary" />
+      <p className="uppercase text-secondary">{label}</p>
+    </button>
   );
 };
 

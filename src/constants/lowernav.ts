@@ -1,40 +1,40 @@
-import soccerIcon from "../assets/icons/soccerIcon.svg";
-import favoriteIcon from "../assets/icons/starIcon.svg";
-import inviteIcon from "../assets/icons/userAddIcon.svg";
-import casinoIcon from "../assets/icons/casinoIcon.svg";
-import walletIcon from "../assets/icons/walletIcon.svg";
+import SoccerIcon from "../assets/icons/soccerIcon.svg";
+import FavoriteIcon from "../assets/icons/starIcon.svg";
+import InviteIcon from "../assets/icons/userAddIcon.svg";
+import CasinoIcon from "../assets/icons/casinoIcon.svg";
+import WalletIcon from "../assets/icons/walletIcon.svg";
 
 interface LowerNavItemsProps {
   id: number;
   name: string;
-  icon: string;
+  icon: React.ElementType;
 }
 
 const lowerNavTabItems: LowerNavItemsProps[] = [
   {
     id: 1,
     name: "Sports",
-    icon: soccerIcon,
+    icon: SoccerIcon,
   },
   {
     id: 2,
     name: "Favorites",
-    icon: favoriteIcon,
+    icon: FavoriteIcon,
   },
   {
     id: 3,
     name: "Invites",
-    icon: inviteIcon,
+    icon: InviteIcon,
   },
   {
     id: 4,
     name: "Casino Live",
-    icon: casinoIcon,
+    icon: CasinoIcon,
   },
   {
     id: 5,
     name: "Cashier",
-    icon: walletIcon,
+    icon: WalletIcon,
   },
 ];
 
