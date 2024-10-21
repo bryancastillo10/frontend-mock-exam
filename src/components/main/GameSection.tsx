@@ -1,5 +1,15 @@
+import LowerNavigation from "./LowerNavigation";
+import UpperNavigation from "./UpperNavigation";
+import GameGallery from "./GameGallery";
+
 const GameSection = () => {
-  return <div>Game Section</div>;
+  return (
+    <main>
+      <UpperNavigation />
+      <GameGallery />
+      <LowerNavigation />
+    </main>
+  );
 };
 
 export default GameSection;
