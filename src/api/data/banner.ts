@@ -32,7 +32,7 @@ const bannerData = [
   },
   {
     id: 4,
-    name: "Ezugi Smart Move",
+    name: "Ezugi",
     img: EZG,
     quantity: 92,
   },

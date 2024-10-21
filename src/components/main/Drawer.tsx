@@ -57,7 +57,7 @@ const Drawer = ({ isOpen, onCloseDrawer, banners, loading }: DrawerProps) => {
           />
         </div>
         {/* Drawer Body */}
-        <div className="grid grid-cols-2 w-[90%] mx-auto items-center overflow-y-scroll gap-4">
+        <div className="grid grid-cols-2 w-[90%] mx-auto items-center overflow-y-scroll gap-4  h-[calc(100%-3rem)]">
           {banners.map((ban) => (
             <GameBanner key={ban.id} image={ban.img} />
           ))}

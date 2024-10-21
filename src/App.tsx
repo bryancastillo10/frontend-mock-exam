@@ -24,7 +24,7 @@ const App = () => {
     <Container>
       <Navbar toggleDrawer={toggleDrawer} />
       <Hero />
-      <AppMainSection />
+      <AppMainSection bannerLoading={loading} banners={banners} />
       <Drawer
         banners={banners}
         loading={loading}
