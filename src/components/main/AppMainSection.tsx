@@ -3,44 +3,40 @@ import LowerNavigation from "./LowerNavigation";
 import UpperNavigation from "./UpperNavigation";
 import SearchInput from "../reusables/SearchInput";
 import GameGallery from "./GameGallery";
-
-import useGetGames from "../../api/useGetGames";
+import SearchResults from "./SearchResults";
+import useGetGames, { gameDataProps } from "../../api/useGetGames";
 import upperNavTabItems from "../../constants/uppernav";
 
-const GameSection = () => {
+const AppMainSection = () => {
   const { loading, games, toggleFavorite } = useGetGames();
-  const [filteredGames, setFilteredGames] = useState(games);
+  const [filteredGames, setFilteredGames] = useState<gameDataProps[]>(games);
+  const [searchResults, setSearchResults] = useState<gameDataProps[]>([]);
 
   const [search, setSearch] = useState("");
-  const [activeTab, setActiveTab] = useState<string>("Start");
-  const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState("Start");
+  const [showSearch, setShowSearch] = useState(false);
 
-  // Toggle Search UI
   const toggleShowSearch = () => {
     setShowSearch(!showSearch);
     setSearch("");
+    setSearchResults([]);
   };
 
-  // Handle Search Input
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const results = games.filter((game) =>
+      game.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setSearchResults(results);
   };
 
   useEffect(() => {
     let filtered = games;
 
-    // Filter by Search
-    if (search) {
-      filtered = filtered.filter((game) =>
-        game.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    // Filter by Tab
     if (activeTab !== "Start") {
       filtered = filtered.filter((game) =>
         game.category.some(
@@ -50,8 +46,7 @@ const GameSection = () => {
     }
 
     setFilteredGames(filtered);
-  }, [search, activeTab, games]);
-
+  }, [activeTab, games]);
   return (
     <main className="h-screen">
       <UpperNavigation
@@ -62,20 +57,28 @@ const GameSection = () => {
         toggleSearch={toggleShowSearch}
       />
       {showSearch && (
-        <SearchInput
-          search={search}
-          handleSearch={handleSearch}
-          handleSearchSubmit={handleSearchSubmit}
+        <>
+          <SearchInput
+            search={search}
+            handleSearch={handleSearch}
+            handleSearchSubmit={handleSearchSubmit}
+          />
+          <SearchResults
+            results={searchResults}
+            toggleFavorite={toggleFavorite}
+          />
+        </>
+      )}
+      {!showSearch && (
+        <GameGallery
+          loading={loading}
+          games={filteredGames}
+          toggleFavorite={toggleFavorite}
         />
       )}
-      <GameGallery
-        loading={loading}
-        games={filteredGames}
-        toggleFavorite={toggleFavorite}
-      />
       <LowerNavigation />
     </main>
   );
 };
 
-export default GameSection;
+export default AppMainSection;

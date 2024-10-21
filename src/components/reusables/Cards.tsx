@@ -9,7 +9,7 @@ interface CardsProps {
 
 const Cards = ({ gameId, toggleFavorite, hasFavorited, image }: CardsProps) => {
   return (
-    <article className="relative size-[115px]">
+    <article className="relative size-[115px] hover:opacity-80">
       <img className="object-fit w-full" src={image} alt={image} />
       <div className="absolute top-1 right-1">
         <FavoriteButton

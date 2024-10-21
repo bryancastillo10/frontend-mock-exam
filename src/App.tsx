@@ -1,11 +1,11 @@
-import { Container, Navbar, Hero, GameSection } from "./components/main";
+import { Container, Navbar, Hero, AppMainSection } from "./components/main";
 
 const App = () => {
   return (
     <Container>
       <Navbar />
       <Hero />
-      <GameSection />
+      <AppMainSection />
     </Container>
   );
 };

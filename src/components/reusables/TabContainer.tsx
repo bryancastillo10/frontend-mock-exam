@@ -7,7 +7,8 @@ interface TabContainerProps {
 const TabContainer = ({ children, position = "top" }: TabContainerProps) => {
   return (
     <section
-      className={`flex items-center gap-2 overflow-x-scroll overflow-y-clip bg-white
+      className={`flex items-center gap-2 overflow-x-scroll
+         overflow-y-clip bg-white xl:w-[388px] 
       ${
         position === "bottom"
           ? "justify-center fixed bottom-0 z-50 border shadow-md border-t-secondary"
