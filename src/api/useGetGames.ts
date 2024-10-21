@@ -7,7 +7,7 @@ export interface gameDataProps {
   img: string;
   hasFavorited: boolean;
   category: string[];
-  gameProvider: string[];
+  gameProvider: string;
 }
 
 const useGetGames = () => {
@@ -17,14 +17,18 @@ const useGetGames = () => {
   useEffect(() => {
     setLoading(true);
     const fetchGames = async () => {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(gameData);
-        }, 1000);
-      });
+      try {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(gameData);
+          }, 1000);
+        });
 
-      setGames(gameData);
-      setLoading(false);
+        setGames(gameData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to get the games data", error);
+      }
     };
     fetchGames();
   }, []);
