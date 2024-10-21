@@ -6,7 +6,7 @@ const LowerNavigation = () => {
   return (
     <TabContainer position="bottom">
       {lowerNavTabItems.map((nav) => (
-        <TabItem label={nav.name} icon={nav.icon} />
+        <TabItem key={nav.id} label={nav.name} icon={nav.icon} />
       ))}
     </TabContainer>
   );

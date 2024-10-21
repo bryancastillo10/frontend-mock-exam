@@ -9,7 +9,7 @@ const UpperNavigation = () => {
       <TabItem label="Search" icon={SearchIcon} />
       <hr className="w-0 h-8 border  border-secondary/50" />
       {upperNavTabItems.slice(1, upperNavTabItems.length).map((nav) => (
-        <TabItem label={nav.name} icon={nav.icon} />
+        <TabItem key={nav.id} label={nav.name} icon={nav.icon} />
       ))}
     </TabContainer>
   );

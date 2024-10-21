@@ -20,7 +20,7 @@ const useGetGames = () => {
       await new Promise((resolve) => {
         setTimeout(() => {
           resolve(gameData);
-        }, 3000);
+        }, 2000);
       });
 
       setGames(gameData);
@@ -29,7 +29,17 @@ const useGetGames = () => {
     fetchGames();
   }, []);
 
-  return { loading, games };
+  const toggleFavorite = (gameId: number) => {
+    setGames((prevGames) =>
+      prevGames.map((game) =>
+        game.id === gameId
+          ? { ...game, hasFavorited: !game.hasFavorited }
+          : game
+      )
+    );
+  };
+
+  return { loading, games, toggleFavorite };
 };
 
 export default useGetGames;
