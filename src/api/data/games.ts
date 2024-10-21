@@ -10,14 +10,16 @@ import beachLife from "../../assets/gamecards/game9.png";
 import incaJackpot from "../../assets/gamecards/game10.png";
 import pridePersia from "../../assets/gamecards/game11.png";
 import aztecaPower from "../../assets/gamecards/game12.png";
-const gameData = [
+
+import { gameDataProps } from "../useGetGames";
+const gameData: gameDataProps[] = [
   {
     id: 1,
     name: "Sugar Rush",
     img: sugarRush,
     hasFavorited: false,
     category: ["new", "jackpots"],
-    gameProvider: ["PragmaticPlay"],
+    gameProvider: "PragmaticPlay",
   },
   {
     id: 2,
@@ -25,7 +27,7 @@ const gameData = [
     img: shaolinCrew,
     hasFavorited: false,
     category: ["others"],
-    gameProvider: ["XPans"],
+    gameProvider: "XPans",
   },
   {
     id: 3,
@@ -33,7 +35,7 @@ const gameData = [
     img: bigWolf,
     hasFavorited: false,
     category: ["live", "new"],
-    gameProvider: ["PlayTech"],
+    gameProvider: "PlayTech",
   },
   {
     id: 4,
@@ -41,7 +43,7 @@ const gameData = [
     img: bookEgypt,
     hasFavorited: false,
     category: ["live", "table games", "bingo"],
-    gameProvider: ["XPans"],
+    gameProvider: "XPans",
   },
   {
     id: 5,
@@ -49,7 +51,7 @@ const gameData = [
     img: piratesPower,
     hasFavorited: false,
     category: ["jackpots", "others"],
-    gameProvider: ["XPans"],
+    gameProvider: "XPans",
   },
   {
     id: 6,
@@ -57,7 +59,7 @@ const gameData = [
     img: crocsBlitz,
     hasFavorited: false,
     category: ["others"],
-    gameProvider: ["Playtech"],
+    gameProvider: "Playtech",
   },
   {
     id: 7,
@@ -65,7 +67,7 @@ const gameData = [
     img: anacondaWild,
     hasFavorited: false,
     category: ["others"],
-    gameProvider: ["PlayTech"],
+    gameProvider: "PlayTech",
   },
   {
     id: 8,
@@ -73,7 +75,7 @@ const gameData = [
     img: mayaJackpot,
     hasFavorited: false,
     category: ["slots", "jackpot"],
-    gameProvider: ["SkyWind"],
+    gameProvider: "SkyWind",
   },
   {
     id: 9,
@@ -81,7 +83,7 @@ const gameData = [
     img: beachLife,
     hasFavorited: false,
     category: ["others", "table games", "bingo"],
-    gameProvider: ["PlayTech"],
+    gameProvider: "PlayTech",
   },
   {
     id: 10,
@@ -89,7 +91,7 @@ const gameData = [
     img: incaJackpot,
     hasFavorited: false,
     category: ["slots", "jackpot"],
-    gameProvider: ["SkyWind"],
+    gameProvider: "SkyWind",
   },
   {
     id: 11,
@@ -97,7 +99,7 @@ const gameData = [
     img: pridePersia,
     hasFavorited: false,
     category: ["new", "table games"],
-    gameProvider: ["PlayTech"],
+    gameProvider: "PlayTech",
   },
   {
     id: 12,
@@ -105,7 +107,7 @@ const gameData = [
     img: aztecaPower,
     hasFavorited: false,
     category: ["others", "jackpot"],
-    gameProvider: ["PlayTech"],
+    gameProvider: "PlayTech",
   },
 ];
 

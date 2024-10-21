@@ -11,7 +11,9 @@ import NetEnt from "../../assets/banners/NETENT.png";
 import PGSoft from "../../assets/banners/PGSOFT.png";
 import Xpans from "../../assets/banners/XPANS.png";
 
-const bannerData = [
+import { bannerDataProps } from "../useGetBanner";
+
+const bannerData: bannerDataProps[] = [
   {
     id: 1,
     name: "Pragmatic Play",

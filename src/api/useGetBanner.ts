@@ -15,14 +15,18 @@ const useGetBanner = () => {
   useEffect(() => {
     setLoading(true);
     const fetchBanners = async () => {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(bannerData);
-        }, 1000);
-      });
+      try {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(bannerData);
+          }, 1000);
+        });
 
-      setBanners(bannerData);
-      setLoading(false);
+        setBanners(bannerData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to get the game banner data", error);
+      }
     };
     fetchBanners();
   }, []);
