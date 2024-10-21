@@ -5,7 +5,7 @@ import NewIcon from "../assets/icons/newIcon.svg";
 import LiveIcon from "../assets/icons/liveIcon.svg";
 import JackpotIcon from "../assets/icons/jackpotIcon.svg";
 import GameIcon from "../assets/icons/playingCardIcon.svg";
-import BingoIcon from "../assets/icons/bingotIcon.svg";
+import BingoIcon from "../assets/icons/bingoIcon.svg";
 import OthersIcon from "../assets/icons/othersIcon.svg";
 
 interface UpperNavItemsProps {
