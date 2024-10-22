@@ -1,12 +1,18 @@
-import { useState, useEffect, ChangeEvent, FormEvent } from "react";
+// Data
 import upperNavTabItems from "../../constants/uppernav";
-import LowerNavigation from "./LowerNavigation";
-import UpperNavigation from "./UpperNavigation";
+
+// UI Components
 import SearchInput from "../reusables/SearchInput";
-import GameGallery from "./GameGallery";
 import SearchResults from "./SearchResults";
-import useGetGames, { gameDataProps } from "../../api/useGetGames";
+import GameGallery from "./GameGallery";
+import UpperNavigation from "./UpperNavigation";
+import LowerNavigation from "./LowerNavigation";
+
+// API and Hooks
+import useGetGames from "../../api/useGetGames";
 import { bannerDataProps } from "../../api/useGetBanner";
+import useSearchByInput from "../../hooks/useSearchByInput";
+import useTabFilter from "../../hooks/useTabFilter";
 
 interface AppMainSectionProps {
   bannerLoading: boolean;
@@ -15,44 +21,16 @@ interface AppMainSectionProps {
 
 const AppMainSection = ({ banners, bannerLoading }: AppMainSectionProps) => {
   const { loading, games, toggleFavorite } = useGetGames();
-  const [filteredGames, setFilteredGames] = useState<gameDataProps[]>(games);
-  const [searchResults, setSearchResults] = useState<gameDataProps[]>([]);
+  const {
+    search,
+    showSearch,
+    searchResults,
+    toggleShowSearch,
+    handleSearch,
+    handleSearchSubmit,
+  } = useSearchByInput({ games });
 
-  const [search, setSearch] = useState("");
-  const [activeTab, setActiveTab] = useState("Start");
-  const [showSearch, setShowSearch] = useState(false);
-
-  const toggleShowSearch = () => {
-    setShowSearch(!showSearch);
-    setSearch("");
-    setSearchResults([]);
-  };
-
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
-
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const results = games.filter((game) =>
-      game.name.toLowerCase().includes(search.toLowerCase())
-    );
-    setSearchResults(results);
-  };
-
-  useEffect(() => {
-    let filtered = games;
-
-    if (activeTab !== "Start") {
-      filtered = filtered.filter((game) =>
-        game.category.some(
-          (cat) => cat.toLowerCase() === activeTab.toLowerCase()
-        )
-      );
-    }
-
-    setFilteredGames(filtered);
-  }, [activeTab, games]);
+  const { filteredGames, activeTab, setActiveTab } = useTabFilter({ games });
 
   return (
     <main className="h-screen">

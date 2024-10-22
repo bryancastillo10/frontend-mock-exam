@@ -1,4 +1,4 @@
-import { useState } from "react";
+import useDrawer from "./hooks/useDrawer";
 import {
   Container,
   Navbar,
@@ -9,16 +9,8 @@ import {
 import useGetBanner from "./api/useGetBanner";
 
 const App = () => {
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const { openDrawer, toggleDrawer, onCloseDrawer } = useDrawer();
   const { loading, banners } = useGetBanner();
-
-  const toggleDrawer = () => {
-    setOpenDrawer(!openDrawer);
-  };
-
-  const onCloseDrawer = () => {
-    setOpenDrawer(false);
-  };
 
   return (
     <Container>
