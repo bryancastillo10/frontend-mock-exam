@@ -25,9 +25,9 @@ const SearchInput = ({
         <input
           type="search"
           value={search}
-          placeholder="Search for the game"
+          placeholder="Search for the game by name or provider"
           className="w-full border border-secondary focus:border-transparent
-        pl-8 py-1 w-50 rounded-lg shadow-sm border-blue1 focus:outline-none focus:ring-1 focus:ring-primary"
+        pl-8 py-1 w-50 rounded-lg shadow-sm caret-primary focus:outline-none focus:ring-1 focus:ring-primary"
           onChange={handleSearch}
         />
         <button className="hover:text-primary">

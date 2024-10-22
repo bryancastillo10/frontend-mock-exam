@@ -19,8 +19,10 @@ const useSearchByInput = ({ games = [] }: gameArrayType) => {
 
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const results = games.filter((game) =>
-      game.name.toLowerCase().includes(search.toLowerCase())
+    const results = games.filter(
+      (game) =>
+        game.name.toLowerCase().includes(search.toLowerCase()) ||
+        game.gameProvider.toLowerCase().includes(search.toLowerCase())
     );
     setSearchResults(results);
   };
