@@ -15,9 +15,9 @@ const useGetGames = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setLoading(true);
     const fetchGames = async () => {
       try {
+        setLoading(true);
         await new Promise((resolve) => {
           setTimeout(() => {
             resolve(gameData);
