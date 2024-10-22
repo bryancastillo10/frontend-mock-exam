@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { bannerDataProps } from "../../api/useGetBanner";
-import { gameDataProps } from "../../api/useGetGames";
+// Icons
+import { IoChevronBackOutline } from "react-icons/io5";
+import { IoChevronForward } from "react-icons/io5";
+
+// UI Components
 import Cards from "../reusables/Cards";
 import BigSpinner from "../reusables/BigSpinner";
 
-import { IoChevronBackOutline } from "react-icons/io5";
-import { IoChevronForward } from "react-icons/io5";
+// API & Hooks
+import { bannerDataProps } from "../../api/useGetBanner";
+import { gameDataProps } from "../../api/useGetGames";
+import useBannerCarousel from "../../hooks/useBannerCarousel";
 
 interface SearchResultsProps {
   bannerLoading: boolean;
@@ -20,25 +24,13 @@ const SearchResults = ({
   banners,
   bannerLoading,
 }: SearchResultsProps) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const itemsPerPage = 3;
-
-  const visibleBanners = banners.slice(
+  const {
     currentIndex,
-    currentIndex + itemsPerPage
-  );
-
-  const handleNext = () => {
-    if (currentIndex + itemsPerPage < banners.length) {
-      setCurrentIndex(currentIndex + itemsPerPage);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - itemsPerPage);
-    }
-  };
+    itemsPerPage,
+    visibleBanners,
+    handlePrevious,
+    handleNext,
+  } = useBannerCarousel({ banners });
 
   if (bannerLoading) {
     return (
